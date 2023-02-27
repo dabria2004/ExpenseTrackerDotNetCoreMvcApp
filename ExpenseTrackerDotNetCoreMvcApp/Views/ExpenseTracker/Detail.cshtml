@@ -1,0 +1,26 @@
+﻿@model List<ExpenseTrackerViewModel>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+
+    @if (item.transaction_type == "Income")
+    {
+        <li class="plus">
+            @(item.description)<span>+@(item.amount)</span><button class="delete-btn" type="button" data-delet-id="@(item.id)">
+                <i class="fa fa-times"></i>
+            </button>
+        </li>
+    }
+    else
+    {
+        <li class="minus">
+            @(item.description)<span>-@(item.amount)</span><button class="delete-btn" type="button" data-delet-id="@(item.id)">
+                <i class="fa fa-times"></i>
+            </button>
+        </li>
+    }
+
+}
